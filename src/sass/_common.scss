@@ -1,0 +1,8 @@
+body {
+	background: #fff;
+	@include css-lock(16, 50, 600, 1000);
+	line-height: 1.4;
+}
+
+
+
