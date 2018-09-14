@@ -3,6 +3,9 @@ title: Index page
 ---
 {% extends "layouts/_layout.html" %}
 
+{# partial example #}
+{% include "partials/_header.html" %}
+
 {% block content %}
 	<div class="container">
 		<div class="row">
@@ -11,4 +14,6 @@ title: Index page
 		</div>
 	</div>
 
+
+{% include "partials/_footer.html" %}
 {% endblock %}
