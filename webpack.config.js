@@ -7,13 +7,13 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 function createConfig(env) {
   let isProduction,
     webpackConfig;
-
+  
   if (env === undefined) {
     env = process.env.NODE_ENV;
   }
-
+  
   isProduction = env === 'production';
-
+  
   webpackConfig = {
     mode: isProduction?'production':'development',
     context: path.join(__dirname, config.src.js),
@@ -48,7 +48,7 @@ function createConfig(env) {
         'window.jQuery': 'jquery',
       }),
       new webpack.NoEmitOnErrorsPlugin(),
-
+      
       new BundleAnalyzerPlugin({
         analyzerMode: 'static',
         analyzerPort: 4000,
@@ -65,6 +65,7 @@ function createConfig(env) {
         ScrollMagic: path.resolve('node_modules', 'scrollmagic/scrollmagic/uncompressed/ScrollMagic.js'),
         'animation.gsap': path.resolve('node_modules', 'scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap.js'),
         'debug.addIndicators': path.resolve('node_modules', 'scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators.js'),
+        "vue": path.resolve('node_modules', 'vue/dist/vue.js')
       },
     },
     optimization :{
@@ -92,20 +93,21 @@ function createConfig(env) {
           ],
         },
         {
-            test: /\.glsl$/,
-            loader: 'webpack-glsl-loader'
+          test: /\.glsl$/,
+          loader: 'webpack-glsl-loader'
         }],
     },
   };
-
+  
   if (isProduction) {
     webpackConfig.plugins.push(
       new webpack.LoaderOptionsPlugin({
         minimize: true,
       })
     );
+    webpackConfig.resolve.alias.vue = path.resolve('node_modules', 'vue/dist/vue.min.js');
   }
-
+  
   return webpackConfig;
 }
 
