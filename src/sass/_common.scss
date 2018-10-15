@@ -1,8 +1,60 @@
-body {
-	background: #fff;
-	@include css-lock(16, 50, 600, 1000);
+html {
+	font-size: 62.5%;
+  
+	@include r($lg) {
+	  font-size: 50%;
+	}
+  }
+  
+  
+  body {
+	font-family: $r;
+	font-size: 1.6rem;
+	background-color: #fff;
+	position: relative;
+	color: #000;
 	line-height: 1.4;
-}
+  }
+  
+  // img
+  img {
+	width: 100%;
+	display: inline-block;
+  }
 
-
-
+  .grid {
+	  display: grid;
+	  grid-template-columns: 1fr 1fr;
+  }
+  
+  
+  // container
+  .container {
+	padding-right: 1.5rem;
+	padding-left: 1.5rem;
+	margin-right: auto;
+	margin-left: auto;
+	
+	@include rmin($xs) {
+	  max-width: 55.4rem;
+	}
+  
+	@include rmin($sm) {
+	  max-width: 75rem;
+	}
+	
+	@include rmin($md) {
+	  max-width: 97rem;
+	}
+  
+	@include rmin($lg) {
+	  max-width: 117rem;
+	}
+  
+	@include rmin($hd) {
+	  width: 1680px;
+	  max-width: 90%;
+	}
+  
+  }
+  
