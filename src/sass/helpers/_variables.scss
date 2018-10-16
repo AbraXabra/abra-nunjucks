@@ -21,3 +21,19 @@ $lg: 75em; // 1200px
 $md: 62em; // 992px
 $sm: 48em; // 768px
 $xs: 36em; // 576px
+
+// fz
+$font-size: (
+    h1: 4rem,
+    h2: 3rem,
+    h3: 2.5rem,
+    h4: 2rem,
+    p: 1.6rem,
+);
+
+@each $tag, $size in $font-size {
+    #{$tag} {
+        font-size: $size;
+    }
+}
+
