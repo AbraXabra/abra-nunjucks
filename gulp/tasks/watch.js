@@ -8,5 +8,5 @@ gulp.task('watch',
     'svgo:watch',
     'list-pages:watch',
     'webpack:watch',
-    'sass:watch'
+    'sass:watch',
 ]);

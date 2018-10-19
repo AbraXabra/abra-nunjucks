@@ -1,26 +1,20 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="ru">
   <head>
-    <meta charset="utf-8"/>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
     <title>{% if title %}{{ title }}{% else %}Template{% endif %}</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <meta name="theme-color" content="#fff"/>
-    <meta name="format-detection" content="telephone=no"/>
     <link rel="stylesheet" media="all" href="css/app.css"/>
-    {# {% include "../partials/_media-tags.html" %} #}
+    <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700&amp;subset=cyrillic" rel="stylesheet">
   </head>
   <body>
-
-    <!-- BEGIN content -->
-    <div class="out">
-      {% block content %}{% endblock %}
+    <div class="wrapper ddd">
+      {% block content %}
+      {% endblock %}
     </div>
-    <!-- END content -->
-
-    <!-- BEGIN scripts -->
-    <script type="text/javascript" src="js/app.js"></script>
-    <!-- END scripts -->
-
   </body>
 </html>

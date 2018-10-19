@@ -21,7 +21,7 @@ var processors = [
 
 gulp.task('sass', function() {
     return gulp
-        .src(config.src.sass + '/*.{sass,scss}')
+        .src(config.src.scss + '/*.{sass,scss}')
         .pipe(sourcemaps.init())
         .pipe(sass({
             outputStyle: config.production ? 'compact' : 'expanded', // nested, expanded, compact, compressed
@@ -34,7 +34,7 @@ gulp.task('sass', function() {
 });
 
 gulp.task('sass:watch', function() {
-    gulp.watch(config.src.sass + '/**/*.{sass,scss}', ['sass']);
+    gulp.watch(config.src.scss + '/**/*.{sass,scss}', ['sass']);
 });
 
 function isMax(mq) {
