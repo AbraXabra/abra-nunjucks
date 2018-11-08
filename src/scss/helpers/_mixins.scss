@@ -11,7 +11,6 @@
     }
 }
 
-
 // height
 @mixin rh($height) {
     @media only screen and (max-height: $height) {
@@ -25,15 +24,13 @@
     }
 }
 
-
 @mixin cover {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 50% 50%;
 }
 
-
-// vertical-align at center  
+// vertical-align at center
 @mixin vcenter {
     position: absolute;
     top: 50%;
@@ -41,41 +38,44 @@
     transform: translate(-50%, -50%);
 }
 
-// font-family 
+@mixin center {
+    position: absolute;
+    transform: translate(-50%, -50%);
+}
+
+// font-family
 @mixin font($alias, $name) {
     @font-face {
         font-family: $alias;
-        src: url("../fonts/"+ $name + ".woff2") format("woff2"), url("../fonts/"+ $name + ".woff") format("woff");
+        src: url("../fonts/"+$name+".woff2") format("woff2"),
+            url("../fonts/"+$name+".woff") format("woff");
         font-weight: normal;
         font-style: normal;
         font-display: swap;
     }
 }
 
-// btn 
+// btn
 @mixin btn {
     padding: 2rem 3rem;
     display: inline-block;
     @content;
 }
 
-
 //mixins definition
 @mixin grid {
-    @supports(grid-area: auto) {
+    @supports (grid-area: auto) {
         display: grid;
         grid-column-gap: $gap-horizontal;
         grid-row-gap: $gap-vertical;
     }
 }
 
-
-
 // gridLayout
 @mixin gridLayout($cols...) {
     display: grid;
 
-    @supports(grid-area: auto) {
+    @supports (grid-area: auto) {
         grid-template-columns: repeat($grid-columns, 1fr);
 
         $i: 1;
@@ -84,20 +84,19 @@
             > :nth-of-type(#{$i}) {
                 grid-column-end: span nth($col, 1);
 
-                @if length($col)>1 {
+                @if length($col) >1 {
                     grid-row-end: span nth($col, 2);
                 }
             }
 
-            $i: $i+1;
+            $i: $i + 1;
         }
     }
 }
 
-
 // gridAdvanced
 @mixin gridAdvanced($cols...) {
-    @supports(grid-area: auto) {
+    @supports (grid-area: auto) {
         grid-template-columns: repeat($grid-columns, 1fr);
 
         $i: 1;
@@ -110,7 +109,21 @@
                 grid-row-end: nth($col, 4);
             }
 
-            $i: $i+1;
+            $i: $i + 1;
         }
+    }
+}
+
+// not
+@mixin not-r($nam) {
+    &:not(:last-child) {
+        margin-right: $nam;
+    }
+}
+
+// not
+@mixin not-l($nam) {
+    &:not(:last-child) {
+        margin-left: $nam;
     }
 }
